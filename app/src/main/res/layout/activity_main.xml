@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/margin_app"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Exo 01 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_exo_01"
+                style="@style/TitleExo"
+                />
+
+            <Button
+                android:id="@+id/btn_main_exo_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_exo_01"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing"
+                />
+
+
+            <!-- Exo 02 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_exo_02"
+                style="@style/TitleExo"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_app"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_main_exo_02_firstname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_firstname"
+                    />
+
+                <EditText
+                    android:id="@+id/et_main_exo_02_lastname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_lastname"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_main_exo_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_exo_02"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing"
+                />
+
+
+            <!-- Exo 03 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_exo_03"
+                style="@style/TitleExo"
+                />
+
+            <Button
+                android:id="@+id/btn_main_exo_03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_exo_03"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing"
+                />
+
+            <!-- Exo 04 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_exo_04"
+                style="@style/TitleExo"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_app"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_phone_number"
+                    android:paddingEnd="10dp"
+                    android:textSize="20sp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_main_exo_04_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_phone_number"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_main_exo_04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_exo_02"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

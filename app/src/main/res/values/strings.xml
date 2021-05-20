@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Exo_02_Intent</string>
+    <string name="title_exo_01">Exercice 1</string>
+    <string name="btn_exo_01">Lancer une activité</string>
+
+    <string name="title_exo_02">Exercice 2</string>
+    <string name="btn_exo_02">Activité de bienvenue</string>
+
+    <string name="title_exo_03">Exercice 3</string>
+    <string name="btn_exo_03">Activité de question</string>
+
+    <string name="title_exo_04">Exercice 4</string>
+    <string name="btn_exo_04">Appeler le numero</string>
+    <string name="hint_firstname">Prenom</string>
+    <string name="hint_lastname">Nom</string>
+    <string name="hint_phone_number">04 123 ...</string>
+    <string name="label_phone_number">Numéro :</string>
+</resources>

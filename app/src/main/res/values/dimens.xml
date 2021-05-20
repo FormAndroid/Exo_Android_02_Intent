@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title">50sp</dimen>
+    <dimen name="margin_app">15dp</dimen>
+    <dimen name="spacing">40dp</dimen>
+</resources>
