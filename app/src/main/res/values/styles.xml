@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TitleExo.Base" >
+    <style name="TitleExoBase" >
         <item name="android:textSize">@dimen/title</item>
         <item name="android:textStyle">italic|bold</item>
         <item name="android:paddingStart">25dp</item>
