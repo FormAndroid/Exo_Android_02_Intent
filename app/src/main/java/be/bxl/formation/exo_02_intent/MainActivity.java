@@ -65,7 +65,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void runActivityWelcome() {
+        // Recup les datas
+        String firstname = editFirstname.getText().toString();
+        String lastname = editLastname.getText().toString();
 
+        // Créer l'intent avec les datas
+        Intent intent = new Intent(getApplicationContext(), Exo02Activity.class);
+        intent.putExtra(Exo02Activity.EXTRA_FIRSTNAME, firstname);
+        intent.putExtra(Exo02Activity.EXTRA_LASTNAME, lastname);
+
+        // Démarre l'activté de l'exo 02
+        startActivity(intent);
     }
 
     private void runActivityQuestion() {
