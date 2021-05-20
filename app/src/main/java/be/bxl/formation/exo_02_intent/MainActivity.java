@@ -1,9 +1,14 @@
 package be.bxl.formation.exo_02_intent;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -126,11 +131,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     //endregion
 
-
     //region Exo 04
-    private void runActivityCallPhone() {
+    private static final int REQUEST_PERMISSION_CALLPHONE = 1337 ;
 
+    private void runActivityCallPhone() {
+        String phoneNumberData = editPhoneNumber.getText().toString();
+
+        // Création d'une ressouce URI qui contient le numero de téléphone
+        Uri phoneNumber = Uri.parse("tel:" + phoneNumberData);
+
+        // Création d'un intent "CALL" avec en data l'uri précédement créer.
+        Intent intentPhone = new Intent(Intent.ACTION_CALL);
+        intentPhone.setData(phoneNumber);
+
+        // Verification "runtime" de la permission "CALL_PHONE"
+        //  -> Dans l'objectif de faire une demande de permission, si ce n'est pas le cas
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_DENIED) {
+            // Demande la permission à l'utilisateur
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CALL_PHONE }, REQUEST_PERMISSION_CALLPHONE);
+        }
+        else if(intentPhone.resolveActivity(getPackageManager()) != null) {
+            // Démarrage de l'application téléphone
+            startActivity(intentPhone);
+        }
     }
+
+    // Méthode lancer quand l'utilisateur a accepter/refuser une permission
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // requestCode  -> Code envoyé lors de l'appel de la méthode "ActivityCompat.requestPermissions"
+        // permissions  -> La liste des permissions qui ont été demandé
+        // grantResults -> La liste des choix de l'utilisateur par rapport à chaque permission (Accepté / resfusé)
+
+        switch (requestCode) {
+
+            case REQUEST_PERMISSION_CALLPHONE:
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Relance la méthode, mais avec la permission est accepter mtn =)
+                    runActivityCallPhone();
+                }
+                else {
+                    Toast.makeText(this, "Dommage, le bouton ne fonctionnera pas !", Toast.LENGTH_LONG).show();
+                }
+                break;
+            // Etc...
+        }
+    }
+
     //endregion
 
 }
