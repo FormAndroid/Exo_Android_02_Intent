@@ -1,15 +1,15 @@
 package be.bxl.formation.exo_02_intent;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // region Exo 02
     private void runActivityWelcome() {
         // Recup les datas
         String firstname = editFirstname.getText().toString();
@@ -77,12 +78,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Démarre l'activté de l'exo 02
         startActivity(intent);
     }
+    //endregion
+
+    //region Exo 03
+    private static final int REQUEST_CODE_EXO_3 = 42 ;
 
     private void runActivityQuestion() {
+        // Créer un intent pour l'activité
+        Intent intent = new Intent(getApplicationContext(), Exo03Activity.class);
 
+        // Démarre l'activté de l'exo 03 en attendant sa réponse
+        //  -> Ne pas faire de fini de cette activité
+        startActivityForResult(intent, REQUEST_CODE_EXO_3);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // requestCode -> Code envoyer via le "startActivityForResult"
+        // resultCode  -> Code envoyer par l'autre activité à l'aide du "setResult"
+        // data        -> Objet "Intent" qui sert de stockage de donnée.
+        //                Celui-ci a été envoyer par l'autre activité via le "setResult"
+
+        switch (requestCode) {
+
+            case REQUEST_CODE_EXO_3:
+                if(resultCode == RESULT_OK && data != null && data.hasExtra(Exo03Activity.EXTRA_RESULT_COLOR)) {
+                    String color = data.getStringExtra(Exo03Activity.EXTRA_RESULT_COLOR);
+                    displayChoiceColor(color);
+                }
+                else {
+                    displayNoChoice();
+                }
+            // Etc...
+        }
+    }
+
+    private void displayChoiceColor(String color) {
+        String msg = String.format(getString(R.string.msg_choice_color), color);
+
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void displayNoChoice() {
+        Toast.makeText(this, R.string.msg_choice_none, Toast.LENGTH_SHORT).show();
+    }
+    //endregion
+
+
+    //region Exo 04
     private void runActivityCallPhone() {
 
     }
+    //endregion
+
 }

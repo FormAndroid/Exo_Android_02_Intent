@@ -19,5 +19,13 @@
     <string name="title_app_01">L\'exo 1 !</string>
     <string name="title_app_02">L\'exo 2 !</string>
     <string name="title_app_03">L\'exo 3 !</string>
+
     <string name="msg_exo_02">Bienvenue %s %s !</string>
+    <string name="msg_choice">Faite un choix !</string>
+    <string name="btn_red">Rouge</string>
+    <string name="btn_green">Vert</string>
+    <string name="btn_orange">Orange</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="msg_choice_color">Votre couleur est %s</string>
+    <string name="msg_choice_none">Vous n\'avez pas choisi de couleur :(</string>
 </resources>
