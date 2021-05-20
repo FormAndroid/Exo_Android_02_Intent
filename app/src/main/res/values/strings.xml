@@ -15,4 +15,5 @@
     <string name="hint_lastname">Nom</string>
     <string name="hint_phone_number">04 123 ...</string>
     <string name="label_phone_number">Numéro :</string>
+    <string name="title_app_01">Page de l\'exo 1 !</string>
 </resources>

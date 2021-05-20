@@ -140,7 +140,7 @@
                 android:id="@+id/btn_main_exo_04"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_exo_02"
+                android:text="@string/btn_exo_04"
                 />
         </LinearLayout>
 
