@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnExo01, btnExo02, btnExo03, btnExo04;
     private EditText editFirstname, editLastname, editPhoneNumber;
@@ -37,6 +37,42 @@ public class MainActivity extends AppCompatActivity{
             startActivity(intent);
         });
 
+        // Pour les autres, on utilise l'implémentation de l'interface "View.OnClickListener"
+        // par la classe "MainActivité" (qui est notre instance)
+        btnExo02.setOnClickListener(this);
+        btnExo03.setOnClickListener(this);
+        btnExo04.setOnClickListener(this);
+
     }
 
+    @Override
+    public void onClick(View v) {
+        Log.d("DEMO", "Clique sur le bouton qui a l'id : " + v.getId());
+
+        switch (v.getId()) {
+            case R.id.btn_main_exo_02:
+                runActivityWelcome();
+                break;
+            case R.id.btn_main_exo_03:
+                runActivityQuestion();
+                break;
+            case R.id.btn_main_exo_04:
+                runActivityCallPhone();
+                break;
+            default:
+                throw new RuntimeException("Bouton non implementé !");
+        }
+    }
+
+    private void runActivityWelcome() {
+
+    }
+
+    private void runActivityQuestion() {
+
+    }
+
+    private void runActivityCallPhone() {
+
+    }
 }
